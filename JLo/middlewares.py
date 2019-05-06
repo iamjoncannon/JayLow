@@ -5,8 +5,21 @@
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
+'''
+from stem import Signal
+from stem.control import Controller
 
+def _set_new_ip():
+    with Controller.from_port(port=9051) as controller:
+        controller.authenticate(password='tor_password')
+        controller.signal(Signal.NEWNYM)
+
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        _set_new_ip()
+        request.meta['proxy'] = 'http://127.0.0.1:9050'
+        spider.log('Proxy : %s' % request.meta['proxy'])
+'''
 
 class JloSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,

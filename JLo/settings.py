@@ -52,9 +52,15 @@ CONCURRENT_REQUESTS = 100
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'JLo.middlewares.JloDownloaderMiddleware': 543,
-#}
+# DOWNLOADER_MIDDLEWARES = {
+   # 'JLo.middlewares.JloDownloaderMiddleware': 543,
+   #user agent
+	# 'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
+	# 'spider_name.comm.rotate_useragent.RotateUserAgentMiddleware' :400,
+        #privoxy
+	# 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+	# 'JLo.middlewares.ProxyMiddleware': 100
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -72,8 +78,8 @@ ITEM_PIPELINES = {
 
 # IMAGES_URLS_FIELD = 'field_name_for_your_images_urls'
 IMAGES_STORE = 'tmp/images/'
-IMAGES_MIN_HEIGHT = 150
-IMAGES_MIN_WIDTH = 150
+IMAGES_MIN_HEIGHT = 300
+IMAGES_MIN_WIDTH = 300
 
 # FILES_STORE = 'tmp/images/'
 
